@@ -1,18 +1,20 @@
 import React from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useDispatch } from 'react-redux';
+import { deleteTodo } from '../action/todoActions';
+import './TodoItem.css';
 
 const TodoItem = ({ id, title }) => {
   const dispatch = useDispatch();
 
-  const deleteTodo = () => {
+  const removeTodoFromList = () => {
     dispatch(deleteTodo(id));
   };
   return (
     <div className='todoItem'>
       <input type='checkbox' name='' id='' />
-      <h2>title goes here</h2>
-      <DeleteIcon onClick={deleteTodo} />
+      <h2>{title}</h2>
+      <DeleteIcon onClick={removeTodoFromList} />
     </div>
   );
 };
