@@ -1,23 +1,43 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Header.css';
+import { motion } from 'framer-motion';
 
-const Header = () => {
-  useEffect(() => {
-    fetch('https://type.fit/api/quotes')
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-    // return () => {
-    //   cleanup;
-    // };
-  }, []);
+const variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
+
+const messageVariant = {
+  hidden: {
+    y: '-100vh',
+    opacity: 0,
+  },
+  visible: {
+    y: '0px',
+    opacity: 1,
+    transition: {
+      delay: 2.5,
+    },
+  },
+};
+
+const Header = ({ quote }) => {
   return (
-    <div className='header'>
+    <motion.div
+      initial='hidden'
+      animate='visible'
+      variants={messageVariant}
+      transition={{ ease: 'easeOut', duration: 2 }}
+      className='header'
+    >
       <div className='header__title'>
         <h2 className='header__quote'>
-          <span>To live my the sword is to die by the sword - Napolean </span>
+          <span>
+            {quote.text} {quote.author}
+          </span>
         </h2>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -16,3 +16,18 @@ export const addTodo = (payload) => async (dispatch, getState) => {
 
   localStorage.setItem('todos', JSON.stringify(getState().todosList.todos));
 };
+
+export const editCompleteTodo = (id) => async (dispatch, getState) => {
+  dispatch({
+    type: 'EDIT_COMPLETE_TODO',
+    payload: id,
+  });
+};
+
+export const editTodoTitle = (payload) => async (dispatch, getState) => {
+  console.log(payload);
+  dispatch({
+    type: 'EDIT_TITLE_TODO',
+    payload: payload,
+  });
+};

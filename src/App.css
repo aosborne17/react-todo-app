@@ -2,12 +2,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
 }
 
 .app {
   height: 100vh;
-  background: url('./tokyo-image.jpg');
-  background-repeat: no-repeat;
+  /* background: url('./tokyo-image.jpg'); */
+  background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+  /* background-repeat: no-repeat; */
   /* background-size: 100% 100%; */
-  background-size: cover;
+  /* background-size: cover; */
 }

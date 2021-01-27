@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addTodo } from '../action/todoActions';
 import './TodoInput.css';
 import { uuid } from 'uuidv4';
+import { motion } from 'framer-motion';
 
 const TodoInput = () => {
   const dispatch = useDispatch();
@@ -14,13 +15,20 @@ const TodoInput = () => {
       addTodo({
         id: id,
         title: todoInput,
+        isComplete: false,
       })
     );
     setTodoInput('');
   };
   return (
-    <div className='todoInput'>
-      {console.log(todoInput)}
+    <motion.div
+      animate={{
+        scale: [1, 1.2, 1.4, 0.6, 1],
+        rotate: [0, 90, 180, 270, 0],
+        borderRadius: ['20%', '20%', '50%', '50%', '0%'],
+      }}
+      className='todoInput'
+    >
       <form onSubmit={handleSubmit}>
         <input
           type='text'
@@ -29,7 +37,7 @@ const TodoInput = () => {
           onChange={(e) => setTodoInput(e.target.value)}
         />
       </form>
-    </div>
+    </motion.div>
   );
 };
 
