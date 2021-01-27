@@ -58,7 +58,7 @@ const TodoItem = forwardRef(({ id, title, isComplete }, ref) => {
       initial='hidden'
       animate='visible'
       variants={messageVariant}
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 1.05 }}
       className={isComplete ? 'todoItem complete' : 'todoItem'}
     >
       <Checkbox
